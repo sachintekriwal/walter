@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Walter Zoller · Pianist · Komponist · Korrepetitor</title>
+<meta name="description" content="Walter Zoller — Pianist, Komponist und Korrepetitor am Gewandhaus zu Leipzig.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF;
+  --snow:#F5F5F7;          /* apple light grey */
+  --ink:#1D1D1F;           /* apple near-black */
+  --ink-soft:#6E6E73;      /* apple secondary text */
+  --blue:#0071E3;          /* apple action blue */
+  --blue-dark:#0051A2;
+  --hair:#D2D2D7;          /* apple hairline */
+  --ice:#EAF2FB;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.55;letter-spacing:-.01em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue);color:#fff}
+
+/* ===== NAV — Apple-style slim frosted bar ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;height:calc(48px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);background:rgba(255,255,255,.78);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center}
+.nav-inner{width:min(1024px,92vw);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-family:'Marcellus',serif;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:12px;font-weight:400;color:rgba(29,29,31,.8);text-decoration:none;transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--ink)}
+.lang-toggle{font-size:12px;font-weight:500;border:1px solid var(--hair);background:transparent;color:var(--ink);padding:5px 14px;border-radius:980px;cursor:pointer;transition:all .2s}
+.lang-toggle:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:26px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+
+/* ===== APPLE-STYLE HERO PANELS ===== */
+.panel{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6vw 80px;position:relative;overflow:hidden}
+#top{min-height:100vh;min-height:100svh;justify-content:flex-start;padding-top:16vh;padding-bottom:0}
+.hero-piano{margin-top:auto;width:100%;padding-top:44px}
+.hero-piano .keys{border-radius:14px 14px 0 0}
+.panel.snow{background:var(--snow)}
+.panel.ice{background:linear-gradient(180deg,#FFFFFF 0%,var(--ice) 100%)}
+.eyebrow{font-size:14px;font-weight:600;color:var(--ink-soft);letter-spacing:.02em;margin-bottom:10px}
+.mega{font-size:clamp(44px,7.5vw,88px);font-weight:700;letter-spacing:-.028em;line-height:1.05}
+.mega .serif{font-family:'Marcellus',serif;font-weight:400;letter-spacing:.01em}
+.sub{font-size:clamp(19px,2.4vw,27px);font-weight:400;color:var(--ink-soft);letter-spacing:-.015em;margin-top:14px;max-width:640px}
+.cta-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.link-arrow{font-size:19px;font-weight:400;color:var(--blue);text-decoration:none;transition:color .2s}
+.link-arrow:hover{text-decoration:underline}
+.pill{font-size:15px;font-weight:500;text-decoration:none;padding:12px 26px;border-radius:980px;transition:all .25s;display:inline-block}
+.pill-solid{background:var(--blue);color:#fff}
+.pill-solid:hover{background:var(--blue-dark)}
+.pill-ghost{border:1px solid var(--blue);color:var(--blue);background:transparent}
+.pill-ghost:hover{background:var(--blue);color:#fff}
+/* soft radial gloss like apple product panels */
+.panel .gloss{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 45% at 50% 78%,rgba(0,113,227,.07),transparent 65%)}
+
+/* ===== SECTION GRID (Apple tile mosaic) ===== */
+.mosaic{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:min(1200px,94vw);margin:14px auto;padding:0}
+.tile{background:var(--snow);border-radius:22px;padding:64px 44px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;position:relative;overflow:hidden;transition:transform .3s}
+.tile:hover{transform:scale(1.008)}
+.tile.dark{background:#1D1D1F;color:#F5F5F7}
+.tile.dark .sub,.tile.dark .eyebrow{color:#A1A1A6}
+.tile h3{font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-.022em;line-height:1.1}
+.tile h3 .serif{font-family:'Marcellus',serif;font-weight:400}
+.tile .sub{font-size:17px;margin-top:8px;max-width:420px}
+.tile .cta-row{margin-top:20px}
+.tile-full{grid-column:1/-1}
+
+/* ===== NEWS strip ===== */
+.news-sec{width:min(1024px,92vw);margin:80px auto}
+.sec-h{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.025em;margin-bottom:34px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.news-card{background:var(--snow);border-radius:18px;padding:28px;text-decoration:none;color:var(--ink);transition:transform .25s,box-shadow .25s;display:block}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+.news-date{font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+.news-card h4{font-size:20px;font-weight:600;letter-spacing:-.015em;margin:10px 0 6px}
+.news-card p{font-size:15px;color:var(--ink-soft)}
+.news-card .more{font-size:14px;font-weight:500;color:var(--blue);margin-top:14px;display:inline-block}
+
+/* ===== LIVE — Apple clean list ===== */
+.live-sec{background:var(--snow);padding:90px 0}
+.live-wrap{width:min(1024px,92vw);margin:0 auto}
+.live-item{background:#fff;border-radius:18px;padding:28px 32px;margin-bottom:14px;display:grid;grid-template-columns:92px 1fr auto;gap:28px;align-items:center;transition:transform .25s,box-shadow .25s}
+.live-item:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.07)}
+.live-date{text-align:center;border-right:1px solid var(--hair);padding-right:24px}
+.live-date b{display:block;font-size:32px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.live-date span{font-size:12px;font-weight:600;text-transform:uppercase;color:var(--ink-soft);letter-spacing:.08em}
+.live-info h4{font-size:20px;font-weight:600;letter-spacing:-.015em}
+.live-info .venue{font-size:14px;color:var(--ink-soft);margin:3px 0 8px}
+.live-info .prog{font-size:15px;color:var(--ink)}
+.live-info .prog b{font-weight:600;color:var(--ink-soft);font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:2px}
+.live-cta{display:flex;gap:10px}
+.pill-sm{font-size:13px;font-weight:500;text-decoration:none;padding:9px 20px;border-radius:980px;transition:all .25s}
+
+/* ===== QUOTES — big Apple statement ===== */
+.quote-sec{padding:110px 6vw;text-align:center}
+.quote-sec blockquote{font-size:clamp(26px,4.2vw,50px);font-weight:700;letter-spacing:-.025em;line-height:1.15;max-width:900px;margin:0 auto}
+.quote-sec blockquote b{background:linear-gradient(100deg,#0071E3,#7FB8F0);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+.quote-src{margin-top:20px;font-size:14px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
+
+/* ===== MUSIC ===== */
+.music-sec{width:min(1024px,92vw);margin:90px auto}
+.disc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.album{background:var(--snow);border-radius:18px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.album:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+.album-cover{aspect-ratio:1;background:linear-gradient(160deg,#DCE8F3,#9DBFDF);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px}
+.album-cover .n{font-family:'Marcellus',serif;font-size:23px;letter-spacing:.04em;color:var(--ink)}
+.album-cover .l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:#3D5A78;margin-top:12px}
+.album-info{padding:20px 24px 26px}
+.album-info h4{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.album-info p{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.album-info a{font-size:14px;font-weight:500;color:var(--blue);text-decoration:none;margin-top:12px;display:inline-block}
+.album-info a:hover{text-decoration:underline}
+
+/* ===== VITA ===== */
+.vita-sec{background:var(--snow);padding:90px 0}
+.vita-wrap{width:min(900px,92vw);margin:0 auto}
+.vita-wrap p{font-size:19px;line-height:1.65;color:#333336;margin-bottom:22px;letter-spacing:-.008em}
+.awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:40px}
+.award{background:#fff;border-radius:16px;padding:22px}
+.award i{font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);display:block;margin-bottom:6px}
+.award span{font-size:15px;font-weight:500}
+
+/* ===== PIANO — kept, restyled Apple-clean ===== */
+.piano-sec{padding:90px 0 0;text-align:center}
+.piano-hint{font-size:13px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.piano-controls{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.piano-controls .pill{cursor:pointer;font-family:inherit;background:#fff}
+.piano-controls .pill:hover{background:var(--blue);color:#fff}
+.kb-hint{font-size:13px;color:var(--ink-soft)}
+.key-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:600;color:#9AA3AE;pointer-events:none}
+.key-w.on .key-label{color:#fff}
+.keys{display:flex;height:120px;position:relative;width:min(1024px,94vw);margin:0 auto;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 -8px 40px rgba(0,0,0,.06)}
+.key-w{flex:1;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;background:linear-gradient(180deg,#FFFFFF,#F2F4F7 75%,#E4E9EF);border-right:1px solid #E0E3E8;cursor:pointer;position:relative;transition:background .08s}
+.key-w:active,.key-w.on{background:linear-gradient(180deg,#BFDBF7,#8FBEEA)}
+.key-b{position:absolute;top:0;width:58%;height:62%;background:linear-gradient(180deg,#2C2C2E,#1D1D1F);left:71%;z-index:2;cursor:pointer;border-radius:0 0 4px 4px;transition:background .08s;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.key-b:active,.key-b.on{background:linear-gradient(180deg,#0071E3,#0051A2)}
+
+/* ===== CONTACT ===== */
+.contact-sec{background:#1D1D1F;color:#F5F5F7;text-align:center;padding:100px 6vw}
+.contact-sec h2{font-size:clamp(30px,4.5vw,52px);font-weight:700;letter-spacing:-.025em}
+.contact-sec p{font-size:18px;color:#A1A1A6;margin:12px 0 30px}
+.contact-sec a.mail{font-size:clamp(18px,2.4vw,26px);font-weight:500;color:#7FB8F0;text-decoration:none}
+.contact-sec a.mail:hover{text-decoration:underline}
+
+/* ===== FOOTER — Apple grey ===== */
+footer{background:var(--snow);color:var(--ink-soft);padding:36px 6vw calc(36px + env(safe-area-inset-bottom));font-size:12px}
+.f-inner{width:min(1024px,92vw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--hair);padding-top:22px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap}
+.f-links a{color:var(--ink-soft);text-decoration:none}
+.f-links a:hover{color:var(--ink);text-decoration:underline}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mosaic{grid-template-columns:1fr}
+  .live-item{grid-template-columns:72px 1fr;gap:18px}
+  .live-cta{grid-column:1/-1;justify-content:flex-start}
+  .panel{min-height:76svh;padding-top:100px}
+  .keys{height:92px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="nav-inner">
+    <a class="logo" href="#top">Walter Zoller</a>
+    <div class="nav-links">
+      <a href="#news" data-i18n="n_news">Aktuelles</a>
+      <a href="#live">Live</a>
+      <a href="#music" data-i18n="n_music">Musik</a>
+      <a href="#vita" data-i18n="n_vita">Über mich</a>
+      <a href="#kontakt" data-i18n="n_kontakt">Kontakt</a>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button class="lang-toggle" id="langBtn">EN</button>
+      <button class="burger" id="burger" aria-label="Menü">☰</button>
+    </div>
+  </div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#news" data-i18n="n_news">Aktuelles</a>
+  <a href="#live">Live</a>
+  <a href="#music" data-i18n="n_music">Musik</a>
+  <a href="#vita" data-i18n="n_vita">Über mich</a>
+  <a href="#kontakt" data-i18n="n_kontakt">Kontakt</a>
+</div>
+
+<!-- HERO PANEL 1 -->
+<section class="panel" id="top">
+  <div class="gloss"></div>
+  <p class="eyebrow" data-i18n="h_eyebrow">Gewandhaus zu Leipzig</p>
+  <h1 class="mega"><span class="serif">Walter Zoller</span></h1>
+  <p class="sub"><span data-i18n="r1">Pianist</span> · <span data-i18n="r2">Komponist</span> · <span data-i18n="r3">Korrepetitor</span></p>
+  <div class="cta-row">
+    <a class="pill pill-solid" href="#live" data-i18n="cta1">Konzerttermine</a>
+    <a class="link-arrow" href="#vita" data-i18n="cta2">Mehr erfahren ›</a>
+  </div>
+  <div class="hero-piano">
+    <div class="piano-controls">
+      <button class="pill pill-ghost" id="demoBtn" data-i18n="demo_play">♪ Melodie abspielen</button>
+      <span class="kb-hint" data-i18n="kb_hint">Oder Tastatur nutzen: A S D F G H J K</span>
+    </div>
+    <div class="keys" id="keys" role="group" aria-label="Spielbare Klaviertastatur"></div>
+  </div>
+</section>
+
+<!-- HERO PANEL 2 (CD) -->
+<section class="panel snow">
+  <p class="eyebrow" data-i18n="p2_eye">Neue Aufnahme</p>
+  <h2 class="mega" style="font-size:clamp(34px,5.5vw,64px)">Beethoven &amp; Schubert</h2>
+  <p class="sub">GENUIN classics</p>
+  <div class="cta-row">
+    <a class="link-arrow" href="#music" data-i18n="p2_cta1">Entdecken ›</a>
+    <a class="link-arrow" href="https://www.genuinclassics.com" target="_blank" rel="noopener" data-i18n="p2_cta2">Zum Label ›</a>
+  </div>
+</section>
+
+<!-- MOSAIC TILES -->
+<div class="mosaic">
+  <div class="tile dark rv">
+    <p class="eyebrow" data-i18n="t1_eye">Komposition</p>
+    <h3><span data-i18n="t1_h">Kinderoper „Aufstand!“</span></h3>
+    <p class="sub" data-i18n="t1_sub">Uraufgeführt vom Gewandhaus-Kinderchor.</p>
+    <div class="cta-row"><a class="link-arrow" href="#vita" data-i18n="more">Mehr erfahren ›</a></div>
+  </div>
+  <div class="tile ice rv" style="background:linear-gradient(180deg,#fff,#EAF2FB)">
+    <p class="eyebrow" data-i18n="t2_eye">Kammermusik</p>
+    <h3><span data-i18n="t2_h">Mit dem Gewandhausorchester</span></h3>
+    <p class="sub" data-i18n="t2_sub">Ensembles mit Mitgliedern des Orchesters.</p>
+    <div class="cta-row"><a class="link-arrow" href="#live" data-i18n="dates">Termine ›</a></div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<section class="news-sec" id="news">
+  <h2 class="sec-h rv" data-i18n="news_h">Aktuelles</h2>
+  <div class="news-grid" id="newsGrid"></div>
+</section>
+
+<!-- LIVE -->
+<section class="live-sec" id="live">
+  <div class="live-wrap">
+    <h2 class="sec-h rv">Live</h2>
+    <div id="liveList"></div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-sec">
+  <blockquote class="rv"><span data-i18n="q1a">„Musikalische Tiefe und </span><b data-i18n="q1b">technische Brillanz</b><span data-i18n="q1c"> am Flügel."</span></blockquote>
+  <div class="quote-src rv" data-i18n="q1s">Konzertkritik · Leipzig</div>
+</section>
+
+<!-- MUSIC -->
+<section class="music-sec" id="music">
+  <h2 class="sec-h rv" data-i18n="music_h">Musik</h2>
+  <div class="disc-grid">
+    <div class="album rv">
+      <div class="album-cover"><div class="n">Beethoven · Schubert</div><div class="l">GENUIN classics</div></div>
+      <div class="album-info"><h4>Beethoven &amp; Schubert</h4><p data-i18n="alb1">Klavierwerke — CD-Album</p><a href="https://www.genuinclassics.com" target="_blank" rel="noopener" data-i18n="alb_link">Zum Label ›</a></div>
+    </div>
+    <div class="album rv">
+      <div class="album-cover"><div class="n">Grammont Portrait</div><div class="l">Musikszene Schweiz</div></div>
+      <div class="album-info"><h4>Grammont Portrait</h4><p data-i18n="alb2">CD-Produktion — Musikszene Schweiz</p><a href="#kontakt" data-i18n="alb_link2">Anfragen ›</a></div>
+    </div>
+    <div class="album rv">
+      <div class="album-cover"><div class="n" data-i18n="alb3n">Radioaufnahmen</div><div class="l">Archiv</div></div>
+      <div class="album-info"><h4 data-i18n="alb3h">Rundfunkaufnahmen</h4><p data-i18n="alb3">Zahlreiche Radioproduktionen</p><a href="#kontakt" data-i18n="alb_link3">Anfragen ›</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- VITA -->
+<section class="vita-sec" id="vita">
+  <div class="vita-wrap">
+    <h2 class="sec-h rv" data-i18n="vita_h">Über mich</h2>
+    <p class="rv" data-i18n="vita_p1">Walter Zoller, geboren 1972 in Basel, studierte an der Musikhochschule Basel Klavier bei Jean-Jacques Dünki und Adrian Oetiker, legte das Konzertdiplom mit Auszeichnung ab und vollendete sein Studium in der Meisterklasse von Bruno Canino an der Musikhochschule Bern.</p>
+    <p class="rv" data-i18n="vita_p2">Seine Konzerttätigkeit als Solist, Kammermusiker und Liedbegleiter führte ihn durch viele Länder Europas — von seinem Debüt mit dem Sinfonieorchester Basel im Stadtcasino Basel bis zu Auftritten in der Wigmore Hall London und bei Festivals in Weimar, Davos, Zürich, Bantry und Kraków.</p>
+    <p class="rv" data-i18n="vita_p3">Seit 2004 lebt Walter Zoller in Leipzig. Er ist als Pianist und Korrepetitor am Gewandhaus engagiert, musiziert in Kammerensembles mit Mitgliedern des Gewandhausorchesters und tritt regelmäßig als Solist und Begleiter auf. Als Komponist und Arrangeur schrieb er u. a. die abendfüllende Kinderoper „Aufstand!", uraufgeführt vom Gewandhaus-Kinderchor.</p>
+    <div class="awards">
+      <div class="award rv"><i>Migros-Kammermusikwettbewerb</i><span data-i18n="a1">3. Preis, Mondrian Ensemble Basel</span></div>
+      <div class="award rv"><i>Concours International Illzach</i><span data-i18n="a2">2. Platz</span></div>
+      <div class="award rv"><i>Swiss Ambassador's Award</i><span data-i18n="a3">10. Preisträger</span></div>
+      <div class="award rv"><i data-i18n="a4i">Konzertdiplom</i><span data-i18n="a4">Mit Auszeichnung, Basel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="kontakt">
+  <h2 data-i18n="c_h">Engagements &amp; Anfragen</h2>
+  <p data-i18n="c_p">Für Konzerte, Korrepetition und Kompositionsaufträge</p>
+  <a class="mail" href="mailto:kontakt@walterzollerpiano.com">kontakt@walterzollerpiano.com</a>
+</section>
+
+<footer>
+  <div class="f-inner">
+    <span>© 2026 Walter Zoller</span>
+    <div class="f-links">
+      <a href="#" data-i18n="f_imp">Impressum</a>
+      <a href="#" data-i18n="f_dat">Datenschutz</a>
+      <a href="mailto:kontakt@walterzollerpiano.com">E-Mail</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const T = {
+ de:{n_news:"Aktuelles",n_music:"Musik",n_vita:"Über mich",n_kontakt:"Kontakt",
+ h_eyebrow:"Gewandhaus zu Leipzig",r1:"Pianist",r2:"Komponist",r3:"Korrepetitor",cta1:"Konzerttermine",cta2:"Mehr erfahren ›",
+ p2_eye:"Neue Aufnahme",p2_cta1:"Entdecken ›",p2_cta2:"Zum Label ›",
+ t1_eye:"Komposition",t1_h:"Kinderoper „Aufstand!“",t1_sub:"Uraufgeführt vom Gewandhaus-Kinderchor.",
+ t2_eye:"Kammermusik",t2_h:"Mit dem Gewandhausorchester",t2_sub:"Ensembles mit Mitgliedern des Orchesters.",
+ more:"Mehr erfahren ›",dates:"Termine ›",news_h:"Aktuelles",music_h:"Musik",vita_h:"Über mich",
+ a1:"3. Preis, Mondrian Ensemble Basel",a2:"2. Platz",a3:"10. Preisträger",a4i:"Konzertdiplom",a4:"Mit Auszeichnung, Basel",
+ vita_p1:"Walter Zoller, geboren 1972 in Basel, studierte an der Musikhochschule Basel Klavier bei Jean-Jacques Dünki und Adrian Oetiker, legte das Konzertdiplom mit Auszeichnung ab und vollendete sein Studium in der Meisterklasse von Bruno Canino an der Musikhochschule Bern.",
+ vita_p2:"Seine Konzerttätigkeit als Solist, Kammermusiker und Liedbegleiter führte ihn durch viele Länder Europas — von seinem Debüt mit dem Sinfonieorchester Basel im Stadtcasino Basel bis zu Auftritten in der Wigmore Hall London und bei Festivals in Weimar, Davos, Zürich, Bantry und Kraków.",
+ vita_p3:"Seit 2004 lebt Walter Zoller in Leipzig. Er ist als Pianist und Korrepetitor am Gewandhaus engagiert, musiziert in Kammerensembles mit Mitgliedern des Gewandhausorchesters und tritt regelmäßig als Solist und Begleiter auf. Als Komponist und Arrangeur schrieb er u. a. die abendfüllende Kinderoper „Aufstand!“, uraufgeführt vom Gewandhaus-Kinderchor.",
+ alb1:"Klavierwerke — CD-Album",alb2:"CD-Produktion — Musikszene Schweiz",alb3n:"Radioaufnahmen",alb3h:"Rundfunkaufnahmen",alb3:"Zahlreiche Radioproduktionen",alb_link:"Zum Label ›",alb_link2:"Anfragen ›",alb_link3:"Anfragen ›",
+ q1a:"„Musikalische Tiefe und ",q1b:"technische Brillanz",q1c:" am Flügel.“",q1s:"Konzertkritik · Leipzig",
+ piano_hint:"Tasten berühren — sie klingen",demo_play:"♪ Melodie abspielen",kb_hint:"Oder Tastatur nutzen: A S D F G H J K",
+ c_h:"Engagements & Anfragen",c_p:"Für Konzerte, Korrepetition und Kompositionsaufträge",f_imp:"Impressum",f_dat:"Datenschutz",
+ progL:"Programm",
+ news:[
+  {d:"28. Juni 2026",t:"Neue Kammermusik-Saison",p:"Programm mit Mitgliedern des Gewandhausorchesters angekündigt.",m:"Weiterlesen ›"},
+  {d:"12. Mai 2026",t:"CD-Neuerscheinung",p:"Beethoven & Schubert — jetzt bei GENUIN classics erhältlich.",m:"Weiterlesen ›"},
+  {d:"02. April 2026",t:"„Aufstand!“ Wiederaufnahme",p:"Die Kinderoper kehrt auf die Bühne zurück.",m:"Weiterlesen ›"}
+ ],
+ live:[
+  {d:"15",mo:"Sep",t:"Kammermusikabend",v:"Gewandhaus, Leipzig · 19:30 Uhr",prog:"Werke von Brahms & Schumann",info:"Info",tix:"Tickets"},
+  {d:"03",mo:"Okt",t:"Liederabend",v:"Mendelssohn-Saal, Leipzig · 20:00 Uhr",prog:"Schubert — Winterreise",info:"Info",tix:"Tickets"},
+  {d:"21",mo:"Nov",t:"Klavierrezital",v:"Stadtcasino, Basel · 19:30 Uhr",prog:"Beethoven & Schubert",info:"Info",tix:"Tickets"}
+ ]},
+ en:{n_news:"News",n_music:"Music",n_vita:"About",n_kontakt:"Contact",
+ h_eyebrow:"Gewandhaus Leipzig",r1:"Pianist",r2:"Composer",r3:"Répétiteur",cta1:"Concert Dates",cta2:"Learn more ›",
+ p2_eye:"New Recording",p2_cta1:"Discover ›",p2_cta2:"Visit label ›",
+ t1_eye:"Composition",t1_h:"Children's Opera “Aufstand!”",t1_sub:"Premiered by the Gewandhaus Children's Choir.",
+ t2_eye:"Chamber Music",t2_h:"With the Gewandhaus Orchestra",t2_sub:"Ensembles with members of the orchestra.",
+ more:"Learn more ›",dates:"Dates ›",news_h:"Latest News",music_h:"Music",vita_h:"About",
+ a1:"3rd Prize, Mondrian Ensemble Basel",a2:"2nd Place",a3:"10th Laureate",a4i:"Concert Diploma",a4:"With distinction, Basel",
+ vita_p1:"Walter Zoller, born in Basel in 1972, studied piano at the Basel Academy of Music with Jean-Jacques Dünki and Adrian Oetiker, graduated with a concert diploma with distinction, and completed his studies in the masterclass of Bruno Canino at the Bern Academy of Music.",
+ vita_p2:"His concert activity as soloist, chamber musician and lied accompanist has taken him across Europe — from his debut with the Basel Symphony Orchestra at the Stadtcasino Basel to appearances at Wigmore Hall London and festivals in Weimar, Davos, Zurich, Bantry and Kraków.",
+ vita_p3:"Walter Zoller has lived in Leipzig since 2004. He is engaged as pianist and répétiteur at the Gewandhaus, performs in chamber ensembles with members of the Gewandhaus Orchestra, and appears regularly as soloist and accompanist. As composer and arranger, his works include the full-length children's opera “Aufstand!”, premiered by the Gewandhaus Children's Choir.",
+ alb1:"Piano works — CD album",alb2:"CD production — Musikszene Schweiz",alb3n:"Radio Recordings",alb3h:"Radio Recordings",alb3:"Numerous radio productions",alb_link:"Visit label ›",alb_link2:"Enquire ›",alb_link3:"Enquire ›",
+ q1a:"“Musical depth and ",q1b:"technical brilliance",q1c:" at the piano.”",q1s:"Concert Review · Leipzig",
+ piano_hint:"Touch the keys — they play",demo_play:"♪ Play melody",kb_hint:"Or use your keyboard: A S D F G H J K",
+ c_h:"Engagements & Enquiries",c_p:"For concerts, coaching and commissions",f_imp:"Legal Info",f_dat:"Privacy",
+ progL:"Program",
+ news:[
+  {d:"28 June 2026",t:"New Chamber Music Season",p:"Programme with members of the Gewandhaus Orchestra announced.",m:"Read more ›"},
+  {d:"12 May 2026",t:"New CD Release",p:"Beethoven & Schubert — now on GENUIN classics.",m:"Read more ›"},
+  {d:"02 April 2026",t:"“Aufstand!” Revival",p:"The children's opera returns to the stage.",m:"Read more ›"}
+ ],
+ live:[
+  {d:"15",mo:"Sep",t:"Chamber Music Evening",v:"Gewandhaus, Leipzig · 7:30 pm",prog:"Works by Brahms & Schumann",info:"Info",tix:"Tickets"},
+  {d:"03",mo:"Oct",t:"Lieder Recital",v:"Mendelssohn Hall, Leipzig · 8:00 pm",prog:"Schubert — Winterreise",info:"Info",tix:"Tickets"},
+  {d:"21",mo:"Nov",t:"Piano Recital",v:"Stadtcasino, Basel · 7:30 pm",prog:"Beethoven & Schubert",info:"Info",tix:"Tickets"}
+ ]}
+};
+let lang="de";
+function render(){
+  const t=T[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{if(t[el.dataset.i18n])el.textContent=t[el.dataset.i18n];});
+  document.getElementById("langBtn").textContent=lang==="de"?"EN":"DE";
+  document.getElementById("newsGrid").innerHTML=t.news.map(n=>`
+    <a class="news-card rv in" href="#kontakt"><div class="news-date">${n.d}</div><h4>${n.t}</h4><p>${n.p}</p><span class="more">${n.m}</span></a>`).join("");
+  document.getElementById("liveList").innerHTML=t.live.map(e=>`
+    <div class="live-item rv in">
+      <div class="live-date"><b>${e.d}</b><span>${e.mo}</span></div>
+      <div class="live-info">
+        <h4>${e.t}</h4>
+        <div class="venue">${e.v}</div>
+        <div class="prog"><b>${t.progL}</b>${e.prog}</div>
+      </div>
+      <div class="live-cta">
+        <a class="pill-sm pill-ghost" href="#kontakt">${e.info}</a>
+        <a class="pill-sm pill-solid" href="#kontakt">${e.tix}</a>
+      </div>
+    </div>`).join("");
+}
+document.getElementById("langBtn").addEventListener("click",()=>{lang=lang==="de"?"en":"de";render();});
+const mm=document.getElementById("mobileMenu");
+document.getElementById("burger").addEventListener("click",()=>mm.classList.toggle("open"));
+mm.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>mm.classList.remove("open")));
+
+/* Piano — unchanged behaviour */
+const NOTES=[261.63,293.66,329.63,349.23,392.00,440.00,493.88,523.25,587.33,659.25,698.46,783.99,880.00,987.77];
+const HAS_BLACK=[1,1,0,1,1,1,0,1,1,0,1,1,1,0];const BO=1.0594630943592953;let ctx;
+function play(f){
+  ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+  if(ctx.state==="suspended")ctx.resume();
+  const o=ctx.createOscillator(),g=ctx.createGain();
+  o.type="triangle";o.frequency.value=f;
+  g.gain.setValueAtTime(.0001,ctx.currentTime);
+  g.gain.exponentialRampToValueAtTime(.28,ctx.currentTime+.015);
+  g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.4);
+  o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+1.5);
+}
+const keysEl=document.getElementById("keys");
+const NOTE_NAMES=["C","D","E","F","G","A","H","C","D","E","F","G","A","H"];
+const KB_KEYS=["a","s","d","f","g","h","j","k","l",";","'","q","w","e"];
+const whiteEls=[];
+NOTES.forEach((f,i)=>{
+  const w=document.createElement("div");w.className="key-w";w.setAttribute("role","button");w.setAttribute("aria-label","Note "+NOTE_NAMES[i]);w.tabIndex=0;
+  const lbl=document.createElement("span");lbl.className="key-label";lbl.textContent=NOTE_NAMES[i];w.appendChild(lbl);
+  whiteEls.push(w);
+  const tr=()=>{play(f);w.classList.add("on");setTimeout(()=>w.classList.remove("on"),160);};
+  w.addEventListener("pointerdown",tr);
+  w.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tr();}});
+  if(HAS_BLACK[i]){
+    const b=document.createElement("div");b.className="key-b";b.setAttribute("role","button");b.tabIndex=0;
+    const bt=e=>{e.stopPropagation();play(f*BO);b.classList.add("on");setTimeout(()=>b.classList.remove("on"),160);};
+    b.addEventListener("pointerdown",bt);
+    b.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();bt(e);}});
+    w.appendChild(b);
+  }
+  keysEl.appendChild(w);
+});
+
+/* Computer keyboard play */
+document.addEventListener("keydown",e=>{
+  if(e.repeat||e.metaKey||e.ctrlKey||e.altKey)return;
+  const tag=(document.activeElement&&document.activeElement.tagName)||"";
+  if(tag==="INPUT"||tag==="TEXTAREA")return;
+  const idx=KB_KEYS.indexOf(e.key.toLowerCase());
+  if(idx>-1&&idx<NOTES.length){
+    play(NOTES[idx]);
+    whiteEls[idx].classList.add("on");
+    setTimeout(()=>whiteEls[idx].classList.remove("on"),160);
+  }
+});
+
+/* Original demo melody — gentle arpeggio theme composed for this site */
+const MELODY=[
+  [0,0],[2,.35],[4,.7],[7,1.05],
+  [4,1.5],[2,1.85],[0,2.2],
+  [3,2.7],[5,3.05],[8,3.4],
+  [7,3.9],[4,4.25],[2,4.6],[0,5.1]
+];
+let demoPlaying=false;
+document.getElementById("demoBtn").addEventListener("click",()=>{
+  if(demoPlaying)return;
+  demoPlaying=true;
+  MELODY.forEach(([idx,t])=>{
+    setTimeout(()=>{
+      play(NOTES[idx]);
+      whiteEls[idx].classList.add("on");
+      setTimeout(()=>whiteEls[idx].classList.remove("on"),200);
+    },t*1000);
+  });
+  setTimeout(()=>{demoPlaying=false;},5800);
+});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
+render();
+</script>
+</body>
+</html>
