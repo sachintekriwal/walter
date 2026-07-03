@@ -43,9 +43,9 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .mobile-menu a{font-size:26px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
 
 /* ===== APPLE-STYLE HERO PANELS ===== */
-.panel{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6vw 80px;position:relative;overflow:hidden}
-#top{min-height:100vh;min-height:100svh;justify-content:flex-start;padding-top:16vh;padding-bottom:0}
-.hero-piano{margin-top:auto;width:100%;padding-top:44px}
+.panel{min-height:62vh;min-height:62svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 6vw 60px;position:relative;overflow:hidden}
+#top{min-height:0;justify-content:flex-start;padding-top:110px;padding-bottom:0}
+.hero-piano{margin-top:34px;width:100%}
 .hero-piano .keys{border-radius:14px 14px 0 0}
 .panel.snow{background:var(--snow)}
 .panel.ice{background:linear-gradient(180deg,#FFFFFF 0%,var(--ice) 100%)}
@@ -66,7 +66,7 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 
 /* ===== SECTION GRID (Apple tile mosaic) ===== */
 .mosaic{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:min(1200px,94vw);margin:14px auto;padding:0}
-.tile{background:var(--snow);border-radius:22px;padding:64px 44px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;position:relative;overflow:hidden;transition:transform .3s}
+.tile{background:var(--snow);border-radius:22px;padding:64px 44px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;position:relative;overflow:hidden;transition:transform .3s}
 .tile:hover{transform:scale(1.008)}
 .tile.dark{background:#1D1D1F;color:#F5F5F7}
 .tile.dark .sub,.tile.dark .eyebrow{color:#A1A1A6}
@@ -77,8 +77,8 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .tile-full{grid-column:1/-1}
 
 /* ===== NEWS strip ===== */
-.news-sec{width:min(1024px,92vw);margin:80px auto}
-.sec-h{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.025em;margin-bottom:34px}
+.news-sec{width:min(1024px,92vw);margin:56px auto}
+.sec-h{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.025em;margin-bottom:24px}
 .news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .news-card{background:var(--snow);border-radius:18px;padding:28px;text-decoration:none;color:var(--ink);transition:transform .25s,box-shadow .25s;display:block}
 .news-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
@@ -88,7 +88,7 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .news-card .more{font-size:14px;font-weight:500;color:var(--blue);margin-top:14px;display:inline-block}
 
 /* ===== LIVE — Apple clean list ===== */
-.live-sec{background:var(--snow);padding:90px 0}
+.live-sec{background:var(--snow);padding:64px 0}
 .live-wrap{width:min(1024px,92vw);margin:0 auto}
 .live-item{background:#fff;border-radius:18px;padding:28px 32px;margin-bottom:14px;display:grid;grid-template-columns:92px 1fr auto;gap:28px;align-items:center;transition:transform .25s,box-shadow .25s}
 .live-item:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.07)}
@@ -103,13 +103,13 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .pill-sm{font-size:13px;font-weight:500;text-decoration:none;padding:9px 20px;border-radius:980px;transition:all .25s}
 
 /* ===== QUOTES — big Apple statement ===== */
-.quote-sec{padding:110px 6vw;text-align:center}
+.quote-sec{padding:72px 6vw;text-align:center}
 .quote-sec blockquote{font-size:clamp(26px,4.2vw,50px);font-weight:700;letter-spacing:-.025em;line-height:1.15;max-width:900px;margin:0 auto}
 .quote-sec blockquote b{background:linear-gradient(100deg,#0071E3,#7FB8F0);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
 .quote-src{margin-top:20px;font-size:14px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
 
 /* ===== MUSIC ===== */
-.music-sec{width:min(1024px,92vw);margin:90px auto}
+.music-sec{width:min(1024px,92vw);margin:60px auto}
 .disc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .album{background:var(--snow);border-radius:18px;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .album:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
@@ -123,7 +123,7 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .album-info a:hover{text-decoration:underline}
 
 /* ===== VITA ===== */
-.vita-sec{background:var(--snow);padding:90px 0}
+.vita-sec{background:var(--snow);padding:64px 0}
 .vita-wrap{width:min(900px,92vw);margin:0 auto}
 .vita-wrap p{font-size:19px;line-height:1.65;color:#333336;margin-bottom:22px;letter-spacing:-.008em}
 .awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:40px}
@@ -132,7 +132,6 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .award span{font-size:15px;font-weight:500}
 
 /* ===== PIANO — kept, restyled Apple-clean ===== */
-.piano-sec{padding:90px 0 0;text-align:center}
 .piano-hint{font-size:13px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
 .piano-controls{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
 .piano-controls .pill{cursor:pointer;font-family:inherit;background:#fff}
@@ -147,7 +146,7 @@ body{background:var(--white);color:var(--ink);font-family:'Inter',-apple-system,
 .key-b:active,.key-b.on{background:linear-gradient(180deg,#0071E3,#0051A2)}
 
 /* ===== CONTACT ===== */
-.contact-sec{background:#1D1D1F;color:#F5F5F7;text-align:center;padding:100px 6vw}
+.contact-sec{background:#1D1D1F;color:#F5F5F7;text-align:center;padding:70px 6vw}
 .contact-sec h2{font-size:clamp(30px,4.5vw,52px);font-weight:700;letter-spacing:-.025em}
 .contact-sec p{font-size:18px;color:#A1A1A6;margin:12px 0 30px}
 .contact-sec a.mail{font-size:clamp(18px,2.4vw,26px);font-weight:500;color:#7FB8F0;text-decoration:none}
@@ -180,7 +179,7 @@ footer{background:var(--snow);color:var(--ink-soft);padding:36px 6vw calc(36px +
   .mosaic{grid-template-columns:1fr}
   .live-item{grid-template-columns:72px 1fr;gap:18px}
   .live-cta{grid-column:1/-1;justify-content:flex-start}
-  .panel{min-height:76svh;padding-top:100px}
+  .panel{min-height:56svh;padding-top:92px}
   .keys{height:92px}
 }
 </style>
